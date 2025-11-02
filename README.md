@@ -1,6 +1,6 @@
 🚀 Feedback Portal Application
 
-Ek clean, modern, aur responsive web application jo users se feedback collect aur manage karti hai. Yeh project React, Material-UI, aur Tailwind CSS ka use karke banaya gaya hai.
+A clean, modern, and responsive web application that collects and manages user feedback. This project is built using React, Material-UI, and Tailwind CSS.
 
 ✨ Features (Kya-kya hai ismein?)
 
@@ -55,14 +55,14 @@ Is project ko local machine par run karne ke liye yeh steps follow karein:
 
 1. Clone the repository:
 
-git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
+git clone https://github.com/your-username/your-repo-name.git
 cd your-repo-name
 
 
 2. Install all dependencies:
 Aapko saari libraries install karni hongi.
 
-npm install @mui/material @emotion/react @emotion/styled @mui/icons-material @mui/x-date-pickers date-fns @emailjs/browser uuid
+npm install
 
 
 ...aur agar Tailwind setup nahi hai:
@@ -81,14 +81,17 @@ Ek Email Template banayein. Is template mein {{name}}, {{email}}, aur {{message}
 
 Apni Service ID, Template ID, aur Public Key ko copy karein.
 
-4. Add Your Keys:
-src/components/FeedbackForm.jsx file ko kholein aur top par yeh values replace karein:
+4. Add Your Keys (Environment Variables Recommended):
 
-// src/components/FeedbackForm.jsx
+API keys ko directly source code mein hardcode karna secure nahi hai. Isliye, ek `.env` file banayein project root mein aur yeh variables add karein (Vite projects mein `VITE_` prefix zaroori hai):
 
-const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';
-const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
-const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
+VITE_EMAILJS_SERVICE_ID=your_service_id
+VITE_EMAILJS_TEMPLATE_ID=your_template_id
+VITE_EMAILJS_PUBLIC_KEY=your_public_key
+
+**Note:** Vite projects mein environment variables ko `VITE_` prefix ke saath define karna zaroori hai.
+
+Ab aap apne `FeedbackForm.jsx` file mein in variables ko aise access kar sakte hain:
 
 
 5. Run the application:
