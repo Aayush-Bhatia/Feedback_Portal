@@ -19,14 +19,18 @@ import FeedbackIcon from '@mui/icons-material/Feedback';
 import HomeIcon from '@mui/icons-material/Home';
 import InfoIcon from '@mui/icons-material/Info';
 import SettingsIcon from '@mui/icons-material/Settings';
-import Footer from './components/Footer.jsx';
-import Header from './components/Header.jsx';
+// --- CHANGE YAHAN HAI ---
+// .jsx extensions hata diye hain
+import Footer from './components/Footer';
+import Header from './components/Header';
 
-// Sabhi pages ko import karo
-import HomePage from './pages/HomePage.jsx';
-import AboutPage from './pages/AboutPage.jsx';
-import SettingsPage from './pages/SettingsPage.jsx';
-import FeedbackPage from './pages/FeedbackPage.jsx'; // Yeh assignment wala main page hai
+// Import all pages
+// --- CHANGE YAHAN HAI ---
+// .jsx extensions hata diye hain
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import SettingsPage from './pages/SettingsPage';
+import FeedbackPage from './pages/FeedbackPage'; // Yeh assignment wala main page hai
 
 
 /**
@@ -40,17 +44,20 @@ export default function App() {
   const toggleDrawer = () => setDrawerOpen(!drawerOpen);
 
   // Navigation items ka array
+  // --- CHANGE YAHAN HAI ---
+  // HomePage ko setActivePage function as a prop pass kiya hai
   const pages = [
-    { text: 'Home', icon: <HomeIcon />, component: <HomePage /> },
+    { text: 'Home', icon: <HomeIcon />, component: <HomePage setActivePage={setActivePage} /> },
     { text: 'Feedback', icon: <FeedbackIcon />, component: <FeedbackPage /> },
     { text: 'About', icon: <InfoIcon />, component: <AboutPage /> },
-    { text: 'Settings', icon: <SettingsIcon />, component: <SettingsPage /> },
+    // { text: 'Settings', icon: <SettingsIcon />, component: <SettingsPage /> },
   ];
 
   // Active page ke basis par component render karta hai
   const renderPage = () => {
     const page = pages.find((p) => p.text === activePage);
-    return page ? page.component : <HomePage />;
+    // Default (fallback) component ko bhi prop pass kiya hai
+    return page ? page.component : <HomePage setActivePage={setActivePage} />;
   };
 
   return (
@@ -58,10 +65,10 @@ export default function App() {
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       
-      {/* 1.(Header) */}
+      {/* (Header) */}
       <Header toggleDrawer={toggleDrawer}/>
 
-      {/* 2. Navigation Drawer (Mobile ke liye) */}
+      {/* Navigation Drawer (Mobile ke liye) */}
       <Drawer
         variant="temporary" // Mobile par temp dikhega
         anchor="left"
@@ -102,7 +109,7 @@ export default function App() {
         </List>
       </Drawer>
       
-      {/* 3. Permanent Sidebar (Desktop ke liye) */}
+      {/* Permanent Sidebar (Desktop ke liye) */}
       <Drawer
         variant="permanent" // Hamesha dikhega
         sx={{
@@ -135,7 +142,7 @@ export default function App() {
         </List>
       </Drawer>
 
-      {/* 4. Main Content + Footer Wrapper (Column flex) */}
+      {/* Main Content + Footer Wrapper (Column flex) */}
       <Box 
         component="div"
         sx={{ 
@@ -145,7 +152,7 @@ export default function App() {
           minHeight: '100vh' // Poori screen height lega
         }}
       >
-        {/* 4a. Main Content Area */}
+        {/* Main Content Area */}
         <Box
           component="main"
           sx={{ flexGrow: 1, p: 3 }} // 'flexGrow: 1' content ko expand karega aur footer ko niche push karega
