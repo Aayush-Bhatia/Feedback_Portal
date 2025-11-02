@@ -10,15 +10,15 @@ import { Paper, Typography, Divider } from '@mui/material';
 
 /**
  * Main page for collecting and viewing feedback.
- * This component acts as the "brain", managing all data and logic.
+ * managing all data and logic.
  */
 function FeedbackPage() {
-  // --- STATE ---
+  // STATE 
   const [allFeedback, setAllFeedback] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [itemToDelete, setItemToDelete] = useState(null);
 
-  // --- DATA LOADING ---
+  // DATA LOADING 
   /**
    * Load initial feedback from the service (localStorage).
    * Runs only once when the component first mounts.
@@ -26,10 +26,10 @@ function FeedbackPage() {
   useEffect(() => {
     const loadedFeedback = FeedbackService.getFeedback();
     setAllFeedback(loadedFeedback);
-  }, []); // [] ka matlab: "Sirf ek baar chalao"
+  }, []); 
 
-  // --- HANDLER FUNCTIONS ---
-  /**
+  // HANDLER FUNCTIONS 
+  /** 
    * Handles adding a new feedback entry.
    * Called by FeedbackForm.
    * @param {Object} formData - The data from the form { name, email, message }
@@ -41,7 +41,7 @@ function FeedbackPage() {
       timestamp: new Date().toISOString(),
     };
 
-    // Service ka use karke data save karo
+    // use Service to save data
     const updatedFeedbackList = FeedbackService.addFeedback(newFeedback);
     
     // React state ko update karo taaki list re-render ho
@@ -78,10 +78,10 @@ function FeedbackPage() {
     setItemToDelete(null);
   };
 
-  // --- RENDER ---
+  // RENDER 
   return (
     <div className="space-y-8">
-      {/* --- Feedback Form Section --- */}
+      {/* Feedback Form Section */}
       <Paper elevation={3} className="p-4 md:p-6">
         <Typography variant="h5" component="h2" className="font-semibold mb-4">
           Submit New Feedback
@@ -89,7 +89,7 @@ function FeedbackPage() {
         <FeedbackForm onFeedbackSubmit={handleAddFeedback} />
       </Paper>
 
-      {/* --- Feedback List Section --- */}
+      {/* Feedback List Section  */}
       <Paper elevation={3} className="p-4 md:p-6">
         <Typography variant="h5" component="h2" className="font-semibold mb-4">
           Submitted Feedback
@@ -101,7 +101,7 @@ function FeedbackPage() {
         />
       </Paper>
 
-      {/* --- Confirmation Modal --- */}
+      {/* Confirmation Modal */}
       <ModalComponent
         isOpen={isModalOpen}
         onClose={handleCloseModal}
