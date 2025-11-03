@@ -2,7 +2,7 @@
 
 A clean, modern, and responsive web application that collects and manages user feedback. This project is built using React, Material-UI, and Tailwind CSS.
 
-✨ Features (Kya-kya hai ismein?)
+✨ Features 
 
 Responsive Layout: Desktop par permanent sidebar aur mobile par navigation drawer ke saath.
 
@@ -20,7 +20,7 @@ Delete with Confirmation: Feedback delete karne se pehle ek confirmation modal (
 
 Persistent Storage: Saara feedback user ke browser mein (localStorage) save hota hai, taaki refresh karne par data delete na ho.
 
-💻 Tech Stack (Kya use kiya hai?)
+💻 Tech Stack 
 
 Frontend: React (v18+)
 
@@ -36,7 +36,7 @@ Date Handling: @mui/x-date-pickers & date-fns
 
 Unique IDs: uuid
 
-📁 File Structure (Project ka structure)
+📁 File Structure 
 
 Project assignment ke best practices ko follow karta hai:
 
@@ -49,7 +49,7 @@ src/
 └── index.js          # Entry point
 
 
-🛠️ Installation & Setup (Kaise chalayein?)
+🛠️ Installation & Setup 
 
 Is project ko local machine par run karne ke liye yeh steps follow karein:
 
@@ -99,8 +99,8 @@ Ab aap apne `FeedbackForm.jsx` file mein in variables ko aise access kar sakte h
 npm run dev
 
 
-Ab app http://localhost:5173 (ya similar port) par live ho jayega.
+Ab app http://localhost:5173 (similar port) par live ho jayega.
 
 👤 Author
 
-Yeh project Aayush Bhatia dwara design aur develop kiya gaya hai.
+Designed and Developed by Aayush Bhatia
