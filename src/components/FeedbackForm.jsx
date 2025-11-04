@@ -8,10 +8,14 @@ import {
   CircularProgress,
 } from '@mui/material';
 
-// EmailJS Configuration 
-const EMAILJS_SERVICE_ID = 'service_e5w4oz8';
-const EMAILJS_TEMPLATE_ID = 'template_v6d9k19';
-const EMAILJS_PUBLIC_KEY = 'jlorVxZYH73YIzIPk';
+// // EmailJS Configuration 
+// const EMAILJS_SERVICE_ID = 'service_e5w4oz8';
+// const EMAILJS_TEMPLATE_ID = 'template_v6d9k19';
+// const EMAILJS_PUBLIC_KEY = 'jlorVxZYH73YIzIPk';
+
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 
 /**
@@ -58,7 +62,7 @@ function FeedbackForm({ onFeedbackSubmit }) {
       email: email,
       message: message,
     };
-
+console.log("The information for email is --->",EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY);
     // Send the email
     emailjs.send(
       EMAILJS_SERVICE_ID,
